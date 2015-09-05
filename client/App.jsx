@@ -15,7 +15,7 @@ App = React.createClass({
 
   render() {
     return (
-      <div className="container">
+      <div className="ui container">
         <header><h1>User Verification App</h1></header>
         {this.renderUserList()}
       </div>
