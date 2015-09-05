@@ -13,7 +13,8 @@ UserList = React.createClass({
 
   render() {
     return (
-        <table>
+        <table className="ui celled table">
+          <thead>
           <tr>
             <th>Name</th>
             <th>Email</th>
@@ -21,7 +22,10 @@ UserList = React.createClass({
             <th>Password</th>
             <th>Random Num</th>
           </tr>
+          </thead>
+          <tbody>
           {this.getUsers()}
+          </tbody>
         </table>
     );
   }
