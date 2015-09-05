@@ -8,5 +8,6 @@ meteor-platform
 autopublish
 insecure
 react
-semantic:ui
 flemay:less-autoprefixer
+semantic:ui
+digilord:faker
