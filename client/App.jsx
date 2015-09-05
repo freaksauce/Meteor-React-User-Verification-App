@@ -12,7 +12,7 @@ App = React.createClass({
   renderUsers() {
     // Get Users from this.data.user
     return this.data.users.map((user) => {
-      return <User key={user.rndStr} user={user} />;
+      return <User key={user.rndStr} user={React.addons.createFragment(user)} />;
     });
   },
 

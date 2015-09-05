@@ -1,3 +1,7 @@
+Meteor.publish("users", function () {
+  return Users.find();
+});
+
 Meteor.startup(function() {
   // Create in 25 fake users.
 
@@ -16,7 +20,7 @@ Meteor.startup(function() {
     }
     Users.insert(userObj);
   });
-  // console.log(Users.find().fetch());
+  console.log(Users.find().fetch());
 
 });
 
