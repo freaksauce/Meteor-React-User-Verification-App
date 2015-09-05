@@ -9,10 +9,10 @@ App = React.createClass({
     }
   },
 
-  renderTasks() {
-    // Get tasks from this.data.user
-    return this.data.tasks.map((user) => {
-      return <User key={user._id} userProfile={user} />;
+  renderUsers() {
+    // Get Users from this.data.user
+    return this.data.users.map((user) => {
+      return <User key={user.rndStr} user={user} />;
     });
   },
 
@@ -20,6 +20,9 @@ App = React.createClass({
     return (
       <div className="container">
         <header><h1>User Verification App</h1></header>
+        <ul>
+          {this.renderUsers()}
+        </ul>
       </div>
     );
   }
