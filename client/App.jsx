@@ -9,20 +9,15 @@ App = React.createClass({
     }
   },
 
-  renderUsers() {
-    // Get Users from this.data.user
-    return this.data.users.map((user) => {
-      return <User key={user.rndStr} user={React.addons.createFragment(user)} />;
-    });
+  renderUserList() {
+    return <UserList users={this.data.users} />;
   },
 
   render() {
     return (
       <div className="container">
         <header><h1>User Verification App</h1></header>
-        <ul>
-          {this.renderUsers()}
-        </ul>
+        {this.renderUserList()}
       </div>
     );
   }
