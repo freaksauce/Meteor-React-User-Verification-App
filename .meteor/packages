@@ -14,3 +14,5 @@ constellation:console
 constellation:session
 constellation:subscriptions
 constellation:autopublish
+kadira:flow-router
+kadira:react-layout

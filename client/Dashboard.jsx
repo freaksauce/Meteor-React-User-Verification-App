@@ -1,4 +1,4 @@
-App = React.createClass({
+Dashboard = React.createClass({
 
   mixins: [ReactMeteorData],
 
@@ -15,9 +15,8 @@ App = React.createClass({
 
   render() {
     return (
-      <div className="ui container">
-        <header><h1>User Verification App</h1></header>
-        {this.renderUserList()}
+      <div>
+      {this.renderUserList()}
       </div>
     );
   }
