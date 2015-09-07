@@ -11,13 +11,14 @@ Meteor.startup(function() {
     var randomEmail = faker.internet.email();
     var randomName = faker.name.findName();
     var userName = faker.internet.userName();
-    var rnd = faker.helpers.randomize();
+    var rnd = faker.random.number(100000);
     var userObj = {
       name: randomName,
       email: randomEmail,
       username: userName,
       password: 'password',
-      rnd: faker.random.number(100000)
+      rnd: rnd,
+      validated: 0
     }
     Users.insert(userObj);
   });

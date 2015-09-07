@@ -21,6 +21,7 @@ UserList = React.createClass({
             <th>Username</th>
             <th>Password</th>
             <th>Random Num</th>
+            <th>Validated</th>
           </tr>
           </thead>
           <tbody>
