@@ -1,2 +1,2 @@
-# meteor-react-test
-Testing building a react app with meteor backend
+# meteor-react
+A react app with meteor using Kadira's Flow Router and ReactLayout.
