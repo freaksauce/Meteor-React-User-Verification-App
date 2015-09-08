@@ -11,6 +11,9 @@ FlowRouter.route("/dashboard", {
 
 FlowRouter.route("/", {
   name: 'home',
+  subscriptions: function() {
+    this.register('users', Meteor.subscribe('users'));
+  },
   action: function() {
     ReactLayout.render(Layout, {
       content: <Home />
