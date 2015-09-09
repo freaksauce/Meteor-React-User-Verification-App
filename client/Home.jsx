@@ -25,16 +25,23 @@ Home = React.createClass({
   validateUser(rnd) {
     console.log('rnd: '+rnd);
     var userData = Users.findOne({'rnd':parseInt(rnd)});
-    var userId = userData._id;
-    this.setState({userData: userData});
-    console.log(userData._id);
-    Users.update({_id: userId}, {$set: {validated: 1} });
-    this.setState({validated: true});
+    if (userData !== undefined) {
+      var userId = userData._id;
+      this.setState({userData: userData});
+      console.log(userData._id);
+      var userUpdate = Users.update({_id: userId}, {$set: {validated: 1} });
+      console.log('userUpdate: '+userUpdate);
+      this.setState({validated: true});
+    }else{
+      console.log("ID doesn't exist");
+    }
   },
 
   getUserForm() {
-    if (this.state.validated == true) {      
-      <UserForm userData={this.state.userData} />
+    console.log(this.state.validated);
+    if (this.state.validated == true) {
+      console.log('render UserForm');
+      return <UserForm userData={this.state.userData} />
     }
   },
 
