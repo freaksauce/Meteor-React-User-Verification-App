@@ -4,6 +4,15 @@ ErrorMessage = React.createClass({
     errorObj: React.PropTypes.object.isRequired
   },
 
+  componentDidMount() {
+    $('.message .close')
+      .on('click', function() {
+        $(this)
+          .closest('.message')
+          .fadeOut('fast');
+      });
+  },
+
   render() {
     return (
       <div className="ui negative message">
