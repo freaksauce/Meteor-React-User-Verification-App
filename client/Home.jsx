@@ -8,7 +8,10 @@ Home = React.createClass({
   },
 
   getInitialState: function() {
-    return {validated: false};
+    return {
+      validated: false,
+      userData: null
+    };
   },
 
   handleSubmit() {
@@ -23,13 +26,19 @@ Home = React.createClass({
     console.log('rnd: '+rnd);
     var userData = Users.findOne({'rnd':parseInt(rnd)});
     var userId = userData._id;
+    this.setState({userData: userData});
     console.log(userData._id);
     Users.update({_id: userId}, {$set: {validated: 1} });
     this.setState({validated: true});
   },
 
+  getUserForm() {
+    if (this.state.validated == true) {      
+      <UserForm userData={this.state.userData} />
+    }
+  },
+
   render() {
-    var formClass = this.state.validated ? '' : 'hidden';
 
     return (
       <div>
@@ -46,29 +55,7 @@ Home = React.createClass({
           </div>
         </div>
 
-        <div className={formClass}>
-          <div className="ui segment form">
-            <h2 className="ui center aligned icon header">
-              <i className="circular users icon"></i>
-            </h2>
-            <h3 className="ui header">hidden form</h3>
-            <div className="field">
-              <label>Name</label>
-              <input ref="name" value="" />
-            </div>
-            <div className="field">
-              <label>Email</label>
-              <input ref="email" value="" />
-            </div>
-            <div className="field">
-              <label>Password</label>
-              <input ref="password" value="" />
-            </div>
-            <div>
-              <button className="ui primary submit button" onClick={this.updateUserProfile}>Update</button>
-            </div>
-          </div>
-        </div>
+        {this.getUserForm()}
 
       </div>
     );
