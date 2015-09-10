@@ -1,11 +1,11 @@
 Meteor.publish("customers", function () {
-  return Users.find();
+  return Customers.find();
 });
 
 Meteor.startup(function() {
   // Create in 25 fake users.
 
-  Users.remove({});
+  Customers.remove({});
 
   _.each(_.range(25), function(){
     var randomEmail = faker.internet.email();

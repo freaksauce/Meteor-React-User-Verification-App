@@ -29,7 +29,7 @@ Home = React.createClass({
     var customerData = Customers.findOne({'rnd':parseInt(rnd)});
     if (customerData !== undefined) {
       var userId = customerData._id;
-      this.setState({customerData: CustomerData});
+      this.setState({customerData: customerData});
       // console.log(userData._id);
       var customersUpdate = Customers.update({_id: userId}, {$set: {validated: 1} });
       // console.log('userUpdate: '+userUpdate);
