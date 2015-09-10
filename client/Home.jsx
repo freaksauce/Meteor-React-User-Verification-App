@@ -18,20 +18,20 @@ Home = React.createClass({
 
   handleSubmit() {
     console.log('handleSubmit');
-    // console.log(this.refs.userStr.getDOMNode().value);
+    // console.log(this.refs.customerStr.getDOMNode().value);
     this.validateUser(
-      this.refs.userStr.getDOMNode().value
+      this.refs.customerStr.getDOMNode().value
     );
   },
 
   validateUser(rnd) {
     // console.log('rnd: '+rnd);
-    var userData = Users.findOne({'rnd':parseInt(rnd)});
-    if (userData !== undefined) {
-      var userId = userData._id;
-      this.setState({userData: userData});
+    var customerData = Customers.findOne({'rnd':parseInt(rnd)});
+    if (customerData !== undefined) {
+      var userId = customerData._id;
+      this.setState({customerData: CustomerData});
       // console.log(userData._id);
-      var userUpdate = Users.update({_id: userId}, {$set: {validated: 1} });
+      var customersUpdate = Customers.update({_id: userId}, {$set: {validated: 1} });
       // console.log('userUpdate: '+userUpdate);
       this.setState({validated: true});
     }else{
@@ -50,7 +50,7 @@ Home = React.createClass({
     console.log(this.state.validated);
     if (this.state.validated === true) {
       console.log('render UserForm');
-      return <UserForm userData={this.state.userData} />
+      return <CustomerForm userData={this.state.customerData} />
     }
   },
 
@@ -64,7 +64,7 @@ Home = React.createClass({
         <div className="ui form segment">
           <div className="field">
             <label>User Random String</label>
-            <input ref="userStr" type="text"/>
+            <input ref="customerStr" type="text"/>
           </div>
           <div>
             <button className="ui primary submit button" onClick={this.handleSubmit}>Validate</button>

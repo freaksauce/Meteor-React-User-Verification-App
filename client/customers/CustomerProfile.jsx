@@ -1,4 +1,4 @@
-UserProfile = React.createClass({
+CustomerProfile = React.createClass({
 
   propTypes: {
     userData: React.PropTypes.object.isRequired

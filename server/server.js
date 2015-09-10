@@ -1,4 +1,4 @@
-Meteor.publish("users", function () {
+Meteor.publish("customers", function () {
   return Users.find();
 });
 
@@ -20,12 +20,8 @@ Meteor.startup(function() {
       rnd: rnd,
       validated: 0
     }
-    Users.insert(userObj);
+    Customers.insert(userObj);
   });
-  // console.log(Users.find().fetch());
-
-});
-
-Meteor.methods({
+  // console.log(Customers.find().fetch());
 
 });

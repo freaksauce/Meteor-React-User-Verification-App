@@ -1,13 +1,13 @@
-UserList = React.createClass({
+CustomerList = React.createClass({
 
   propTypes: {
-    users: React.PropTypes.array.isRequired
+    customers: React.PropTypes.array.isRequired
   },
 
-  getUsers() {
-    return this.props.users.map((user) => {
+  getCustomers() {
+    return this.props.customers.map((customer) => {
       // console.log(user);
-      return <UserProfile key={user._id} userData={user} />;
+      return <CustomerProfile key={customer._id} userData={customer} />;
     });
   },
 
@@ -25,7 +25,7 @@ UserList = React.createClass({
           </tr>
           </thead>
           <tbody>
-          {this.getUsers()}
+          {this.getCustomers()}
           </tbody>
         </table>
     );

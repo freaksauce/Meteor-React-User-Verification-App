@@ -1,4 +1,4 @@
-UserForm = React.createClass({
+CustomerForm = React.createClass({
 
   propTypes: {
     userData: React.PropTypes.object.isRequired

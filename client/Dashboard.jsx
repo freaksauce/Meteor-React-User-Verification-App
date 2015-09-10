@@ -2,21 +2,21 @@ Dashboard = React.createClass({
 
   mixins: [ReactMeteorData],
 
-  // Loads items from the Users collection and puts them on this.data.users
+  // Loads items from the Customers collection and puts them on this.data.customers
   getMeteorData() {
     return {
-      users: Users.find({}).fetch()
+      customers: Customers.find({}).fetch()
     }
   },
 
   renderUserList() {
-    return <UserList users={this.data.users} />;
+    return <CustomerList customers={this.data.customers} />;
   },
 
   render() {
     return (
       <div>
-        {this.renderUserList()}
+        {this.renderCustomerList()}
       </div>
     );
   }

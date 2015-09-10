@@ -1,4 +1,9 @@
 Login = React.createClass({
+
+  handleSubmit(e) {
+    console.log(e.target);
+  },
+
   render() {
     return (
       <div>
@@ -17,7 +22,7 @@ Login = React.createClass({
                 <input type="password" name="password" placeholder="Password"/>
               </div>
             </div>
-            <div className="ui fluid large teal submit button">Login</div>
+            <div className="ui fluid large teal submit button" onClick={this.handleSubmit()}>Login</div>
           </div>
 
           <div className="ui error message"></div>

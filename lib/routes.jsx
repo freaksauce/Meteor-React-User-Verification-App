@@ -1,7 +1,7 @@
 FlowRouter.route("/", {
   name: 'home',
   subscriptions: function() {
-    this.register('users', Meteor.subscribe('users'));
+    this.register('users', Meteor.subscribe('customers'));
   },
   action: function() {
     ReactLayout.render(Layout, {
@@ -12,7 +12,7 @@ FlowRouter.route("/", {
 
 FlowRouter.route("/dashboard", {
   subscriptions: function() {
-    this.register('users', Meteor.subscribe('users'));
+    this.register('users', Meteor.subscribe('customers'));
   },
   action: function() {
     ReactLayout.render(Layout, {
@@ -23,7 +23,7 @@ FlowRouter.route("/dashboard", {
 
 FlowRouter.route("/login", {
   subscriptions: function() {
-    // this.register('users', Meteor.subscribe('users'));
+    // this.register('users', Meteor.subscribe('customers'));
   },
   action: function() {
     ReactLayout.render(Layout, {
