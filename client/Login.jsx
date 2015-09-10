@@ -5,6 +5,9 @@ Login = React.createClass({
     var password = React.findDOMNode(this.refs.password).value.trim();
     console.log(email+' '+password);
 
+    if (1==1) {
+      FlowRouter.go("/dashboard");
+    }
     e.preventDefault();
   },
 

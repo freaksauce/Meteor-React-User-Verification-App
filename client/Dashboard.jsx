@@ -9,7 +9,7 @@ Dashboard = React.createClass({
     }
   },
 
-  renderUserList() {
+  renderCustomerList() {
     return <CustomerList customers={this.data.customers} />;
   },
 
