@@ -1,14 +1,43 @@
 Login = React.createClass({
 
+  getInitialState: function() {
+    return {
+      errorObj: {heading: 'User Login error', message: 'The user login details do not match our records'},
+      showError: false
+    };
+  },
+
   handleSubmit(e) {
     var email = React.findDOMNode(this.refs.email).value.trim();
     var password = React.findDOMNode(this.refs.password).value.trim();
     console.log(email+' '+password);
 
-    if (1==1) {
-      FlowRouter.go("/dashboard");
-    }
+    // Meteor.loginWithPassword() function.
+    Meteor.loginWithPassword(email, password, (err) => {
+      if (err) {
+        // The user might not have been found, or their passwword
+        // could be incorrect. Inform the user that their
+        // login attempt has failed.
+        console.log('Login error');
+        console.log(err);
+        this.showError();
+      }else{
+        // The user has been logged in.
+        FlowRouter.go("/dashboard");
+      }
+    });
+
     e.preventDefault();
+  },
+
+  getErrorMessage() {
+    if (this.state.showError === true) {
+      return <ErrorMessage errorObj={this.state.errorObj} />
+    }
+  },
+
+  showError() {
+    this.setState({showError:true});
   },
 
   render() {
@@ -34,7 +63,7 @@ Login = React.createClass({
             </div>
           </div>
 
-          <div className="ui error message"></div>
+          {this.getErrorMessage()}
 
         </form>
       </div>
