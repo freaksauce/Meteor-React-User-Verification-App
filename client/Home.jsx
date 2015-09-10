@@ -59,7 +59,7 @@ Home = React.createClass({
     return (
       <div>
         <h2 className="ui header">Home</h2>
-        <p><a href="/dashboard">Dashboard</a></p>
+        {/*<p><a href="/dashboard">Dashboard</a></p>*/}
 
         <div className="ui form segment">
           <div className="field">
