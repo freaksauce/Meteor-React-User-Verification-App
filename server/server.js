@@ -22,6 +22,17 @@ Meteor.startup(function() {
     }
     Customers.insert(userObj);
   });
-  // console.log(Customers.find().fetch());
 
+  if ( Meteor.users.find().count() === 0 ) {
+    var userId = Accounts.createUser({
+        username: 'admin',
+        email: 'jon@freaksauce.com',
+        password: 'password',
+        profile: {
+            first_name: 'Jon',
+            last_name: 'Bloomer',
+        }
+    });
+  }
+  // console.log(Meteor.users.find().fetch());
 });
