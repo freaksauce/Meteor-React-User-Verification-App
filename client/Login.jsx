@@ -44,6 +44,8 @@ Login = React.createClass({
     return (
       <div>
         <h1>Login</h1>
+        <p>email: jon@freaksauce.com<br/>password: password</p>
+
         <form className="ui large form" onSubmit={this.handleSubmit}>
           <div className="ui stacked segment">
             <div className="field">

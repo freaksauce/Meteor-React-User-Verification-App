@@ -36,3 +36,17 @@ Meteor.startup(function() {
   }
   // console.log(Meteor.users.find().fetch());
 });
+
+Meteor.methods({
+
+  validateCustomer: function(userId) {
+    Customers.update({_id: userId}, {$set: {validated: 1} });
+  },
+  updateProfile: function(userData) {
+    // console.log(userData);
+    console.log('updateProfile');
+    Customers.update({_id: userData.userId}, {$set: {name: userData.name, email: userData.email, password: userData.password} });
+    console.log(Customers.findOne(userData.userId));
+  }
+
+});

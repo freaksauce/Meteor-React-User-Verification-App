@@ -31,8 +31,8 @@ Home = React.createClass({
       var userId = customerData._id;
       this.setState({customerData: customerData});
       // console.log(userData._id);
-      var customersUpdate = Customers.update({_id: userId}, {$set: {validated: 1} });
-      // console.log('userUpdate: '+userUpdate);
+      Meteor.call("validateCustomer", userId);
+
       this.setState({validated: true});
     }else{
       console.log("ID doesn't exist");
@@ -47,7 +47,7 @@ Home = React.createClass({
   },
 
   getUserForm() {
-    console.log(this.state.validated);
+    // console.log(this.state.validated);
     if (this.state.validated === true) {
       console.log('render UserForm');
       return <CustomerForm userData={this.state.customerData} />

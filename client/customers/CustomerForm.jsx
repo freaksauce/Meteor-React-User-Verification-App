@@ -4,8 +4,14 @@ CustomerForm = React.createClass({
     userData: React.PropTypes.object.isRequired
   },
 
-  handleChange() {
-    console.log('handle change');
+  updateUserProfile() {
+    console.log('update profile');
+    var userData = {};
+    userData.userId = this.props.userData._id;
+    userData.name = this.refs.name.getDOMNode().value;
+    userData.email = this.refs.email.getDOMNode().value;
+    userData.password = this.refs.password.getDOMNode().value;
+    Meteor.call('updateProfile', userData);
   },
 
   render() {
