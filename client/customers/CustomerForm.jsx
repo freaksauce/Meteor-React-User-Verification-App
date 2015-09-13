@@ -16,7 +16,7 @@ CustomerForm = React.createClass({
           <h2 className="ui center aligned icon header">
             <i className="circular users icon"></i>
           </h2>
-          <h3 className="ui header">hidden form</h3>
+          <h3 className="ui header">Update user details</h3>
             <label>Name</label>
           <div className="field">
             <input ref="name" defaultValue={this.props.userData.name} />
