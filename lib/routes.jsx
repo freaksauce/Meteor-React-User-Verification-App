@@ -15,9 +15,13 @@ FlowRouter.route("/dashboard", {
     this.register('customers', Meteor.subscribe('customers'));
   },
   action: function() {
-    ReactLayout.render(Layout, {
-      content: <Dashboard />
-    });
+    if (Meteor.userId()) {
+      ReactLayout.render(Layout, {
+        content: <Dashboard />
+      });
+    }else{
+      FlowRouter.go("/login");
+    }
   }
 });
 
