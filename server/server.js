@@ -45,7 +45,13 @@ Meteor.methods({
   updateProfile: function(userData) {
     // console.log(userData);
     console.log('updateProfile');
-    Customers.update({_id: userData.userId}, {$set: {name: userData.name, email: userData.email, password: userData.password} });
+    Customers.update({_id: userData.userId}, {$set: {name: userData.name, email: userData.email, password: userData.password} }, function(error) {
+      if (error) {
+        console.log(error);
+      }else{
+        return true;
+      }
+    });
     console.log(Customers.findOne(userData.userId));
   }
 

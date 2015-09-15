@@ -9,7 +9,6 @@ MainNav = React.createClass({
   },
 
   getDashboardClasses() {
-    console.log(this.data.currentUser);
     if (this.data.currentUser) {
       return 'item';
     }else{

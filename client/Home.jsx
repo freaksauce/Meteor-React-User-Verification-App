@@ -11,7 +11,6 @@ Home = React.createClass({
     return {
       validated: false,
       userData: null,
-      errorObj: {heading: 'User validation error', message: 'The number that you have provided does not exist'},
       showError: false
     };
   },
@@ -42,7 +41,8 @@ Home = React.createClass({
 
   getErrorMessage() {
     if (this.state.showError === true) {
-      return <ErrorMessage errorObj={this.state.errorObj} />
+      var messageContent = {heading: 'User validation error', message: 'The number that you have provided does not exist'};
+      return <Message messageType="negative" messageContent={messageContent} />
     }
   },
 
@@ -59,7 +59,6 @@ Home = React.createClass({
     return (
       <div>
         <h2 className="ui header">Home</h2>
-        {/*<p><a href="/dashboard">Dashboard</a></p>*/}
 
         <div className="ui form segment">
           <div className="field">

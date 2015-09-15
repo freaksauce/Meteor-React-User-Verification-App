@@ -4,6 +4,12 @@ CustomerForm = React.createClass({
     userData: React.PropTypes.object.isRequired
   },
 
+  getInitialState() {
+    return {
+      success: false
+    }
+  },
+
   updateUserProfile() {
     console.log('update profile');
     var userData = {};
@@ -11,12 +17,26 @@ CustomerForm = React.createClass({
     userData.name = this.refs.name.getDOMNode().value;
     userData.email = this.refs.email.getDOMNode().value;
     userData.password = this.refs.password.getDOMNode().value;
-    Meteor.call('updateProfile', userData);
+    Meteor.call('updateProfile', userData, (error, result) => {
+      if (error) {
+        console.log(error);
+      }else{
+        this.setState({'success': true});
+      }
+    });
+  },
+
+  getSuccessMessage() {
+    if (this.state.success === true) {
+      var messageContent = {heading: 'Update success', message: 'User details updated'};
+      return <Message messageType="success" messageContent={messageContent} />
+    }
   },
 
   render() {
-
     return (
+      <div>
+        {this.getSuccessMessage()}
 
         <div className="ui segment form">
           <h2 className="ui center aligned icon header">
@@ -40,6 +60,7 @@ CustomerForm = React.createClass({
           </div>
         </div>
 
+      </div>
     );
   }
 

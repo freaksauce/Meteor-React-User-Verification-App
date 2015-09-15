@@ -27,7 +27,6 @@ FlowRouter.route("/dashboard", {
 
 FlowRouter.route("/login", {
   subscriptions: function() {
-    // this.register('users', Meteor.subscribe('customers'));
   },
   action: function() {
     ReactLayout.render(Layout, {
