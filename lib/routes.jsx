@@ -34,3 +34,13 @@ FlowRouter.route("/login", {
     });
   }
 });
+
+FlowRouter.notFound = {
+    subscriptions: function() {
+    },
+    action: function() {
+      ReactLayout.render(Layout, {
+        content: <NotFound />
+      });
+    }
+};
