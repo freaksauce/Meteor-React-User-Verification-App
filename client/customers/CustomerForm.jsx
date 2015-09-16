@@ -15,6 +15,7 @@ CustomerForm = React.createClass({
     var userData = {};
     userData.userId = this.props.userData._id;
     userData.name = this.refs.name.getDOMNode().value;
+    userData.username = this.refs.username.getDOMNode().value;
     userData.email = this.refs.email.getDOMNode().value;
     userData.password = this.refs.password.getDOMNode().value;
     Meteor.call('updateProfile', userData, (error, result) => {
@@ -43,13 +44,17 @@ CustomerForm = React.createClass({
             <i className="circular users icon"></i>
           </h2>
           <h3 className="ui header">Update user details</h3>
-            <label>Name</label>
           <div className="field">
+            <label>Name</label>
             <input ref="name" defaultValue={this.props.userData.name} />
           </div>
           <div className="field">
+            <label>Username</label>
+            <input ref="username" defaultValue={this.props.userData.username} />
+          </div>
+          <div className="field">
             <label>Email</label>
-            <input ref="email" defaultValue={this.props.userData.email} />
+            <input ref="email" defaultValue={this.props.userData.email} readonly="readonly" />
           </div>
           <div className="field">
             <label>Password</label>

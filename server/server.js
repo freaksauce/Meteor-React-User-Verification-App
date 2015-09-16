@@ -45,7 +45,7 @@ Meteor.methods({
   updateProfile: function(userData) {
     // console.log(userData);
     console.log('updateProfile');
-    Customers.update({_id: userData.userId}, {$set: {name: userData.name, email: userData.email, password: userData.password} }, function(error) {
+    Customers.update({_id: userData.userId}, {$set: {name: userData.name, username: userData.username, password: userData.password} }, function(error) {
       if (error) {
         console.log(error);
       }else{
