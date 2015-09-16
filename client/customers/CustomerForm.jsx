@@ -54,7 +54,7 @@ CustomerForm = React.createClass({
           </div>
           <div className="field">
             <label>Email</label>
-            <input ref="email" defaultValue={this.props.userData.email} readonly="readonly" />
+            <input ref="email" value={this.props.userData.email} readonly />
           </div>
           <div className="field">
             <label>Password</label>
