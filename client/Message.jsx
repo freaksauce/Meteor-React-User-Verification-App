@@ -17,7 +17,12 @@ Message = React.createClass({
         $(this)
           .closest('.message')
           .fadeOut('fast');
-      });
+      }
+    );
+
+    Meteor.setTimeout(function() {
+      $('.message').fadeOut('slow');
+    }, 8000);
   },
 
   render() {

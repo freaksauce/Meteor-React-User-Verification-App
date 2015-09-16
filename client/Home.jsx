@@ -58,21 +58,26 @@ Home = React.createClass({
 
     return (
       <div>
-        <h2 className="ui header">Home</h2>
 
-        <div className="ui form segment">
-          <div className="field">
-            <label>User Random String</label>
-            <input ref="customerStr" type="text"/>
+        <div className="ui container text">
+
+          <h2 className="ui header">Home</h2>
+
+          <div className="ui form segment">
+            <div className="field">
+              <label>User Random String</label>
+              <input ref="customerStr" type="text"/>
+            </div>
+            <div>
+              <button className="ui primary submit button" onClick={this.handleSubmit}>Validate</button>
+            </div>
           </div>
-          <div>
-            <button className="ui primary submit button" onClick={this.handleSubmit}>Validate</button>
-          </div>
-        </div>
 
         {this.getErrorMessage()}
 
         {this.getUserForm()}
+
+        </div>
 
       </div>
     );

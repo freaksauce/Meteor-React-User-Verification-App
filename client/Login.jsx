@@ -42,7 +42,7 @@ Login = React.createClass({
 
   render() {
     return (
-      <div>
+      <div className="ui container text">
         <h1>Login</h1>
         <p>email: jon@freaksauce.com<br/>password: password</p>
 
