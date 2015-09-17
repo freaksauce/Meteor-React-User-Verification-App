@@ -53,8 +53,13 @@ Home = React.createClass({
       }else if (this.state.errorType === 2) {
         var messageContent = {heading: 'User validation error', message: 'You have entered an invalid user number.'};
       }
-      return <Message messageType="negative" messageContent={messageContent} />
+      return <Message messageType="negative" messageContent={messageContent} hideErrorMessage={this.hideErrorMessage} />
     }
+  },
+
+  hideErrorMessage() {
+    // console.log("hideErrorMessage");
+    this.setState({showError: false});
   },
 
   getUserForm() {

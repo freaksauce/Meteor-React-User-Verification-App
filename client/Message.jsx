@@ -12,16 +12,20 @@ Message = React.createClass({
   },
 
   componentDidMount() {
+    var _self = this;
     $('.message .close')
       .on('click', function() {
         $(this)
           .closest('.message')
           .fadeOut('fast');
+          _self.props.hideErrorMessage();
       }
     );
 
     Meteor.setTimeout(function() {
-      $('.message').fadeOut('slow');
+      $('.message').fadeOut('slow', function() {
+        _self.props.hideErrorMessage();
+      });
     }, 8000);
   },
 
