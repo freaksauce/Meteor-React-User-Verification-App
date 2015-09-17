@@ -31,8 +31,13 @@ Login = React.createClass({
 
   getErrorMessage() {
     if (this.state.showError === true) {
-      return <ErrorMessage errorObj={this.state.errorObj} />
+      return <Message messageType="negative" messageContent={this.state.errorObj} hideErrorMessage={this.hideErrorMessage} />
     }
+  },
+
+  hideErrorMessage() {
+    // console.log("hideErrorMessage");
+    this.setState({showError: false});
   },
 
   showError() {
