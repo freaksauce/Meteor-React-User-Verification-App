@@ -11,7 +11,7 @@ CustomerForm = React.createClass({
   },
 
   updateUserProfile() {
-    console.log('update profile');
+    // console.log('update profile');
     var userData = {};
     userData.userId = this.props.userData._id;
     userData.name = this.refs.name.getDOMNode().value;
@@ -54,7 +54,7 @@ CustomerForm = React.createClass({
           </div>
           <div className="field">
             <label>Email</label>
-            <input ref="email" value={this.props.userData.email} readonly />
+            <input ref="email" value={this.props.userData.email} readOnly />
           </div>
           <div className="field">
             <label>Password</label>

@@ -40,11 +40,13 @@ Meteor.startup(function() {
 Meteor.methods({
 
   validateCustomer: function(userId) {
+    check(userId, String);
     Customers.update({_id: userId}, {$set: {validated: 1} });
   },
   updateProfile: function(userData) {
     // console.log(userData);
-    console.log('updateProfile');
+    check(userData, Object);
+    // console.log('updateProfile');
     Customers.update({_id: userData.userId}, {$set: {name: userData.name, username: userData.username, password: userData.password} }, function(error) {
       if (error) {
         console.log(error);

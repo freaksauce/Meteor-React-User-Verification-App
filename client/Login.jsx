@@ -10,7 +10,7 @@ Login = React.createClass({
   handleSubmit(e) {
     var email = React.findDOMNode(this.refs.email).value.trim();
     var password = React.findDOMNode(this.refs.password).value.trim();
-    console.log(email+' '+password);
+    // console.log(email+' '+password);
 
     // Meteor.loginWithPassword() function.
     Meteor.loginWithPassword(email, password, (err) => {
@@ -18,8 +18,7 @@ Login = React.createClass({
         // The user might not have been found, or their passwword
         // could be incorrect. Inform the user that their
         // login attempt has failed.
-        console.log('Login error');
-        console.log(err);
+        // console.log(err);
         this.showError();
       }else{
         // The user has been logged in.

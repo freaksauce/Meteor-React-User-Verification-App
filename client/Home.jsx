@@ -11,7 +11,8 @@ Home = React.createClass({
     return {
       validated: false,
       userData: null,
-      showError: false
+      showError: false,
+      errorType: null
     };
   },
 
@@ -26,22 +27,32 @@ Home = React.createClass({
   validateUser(rnd) {
     // console.log('rnd: '+rnd);
     var customerData = Customers.findOne({'rnd':parseInt(rnd)});
+
     if (customerData !== undefined) {
+      // if already valdated show error
+      if (customerData.validated === 1) {
+        this.setState({showError: true, errorType: 1});
+        return;
+      }
+
       var userId = customerData._id;
       this.setState({customerData: customerData});
       // console.log(userData._id);
       Meteor.call("validateCustomer", userId);
-
       this.setState({validated: true});
     }else{
-      console.log("ID doesn't exist");
-      this.setState({showError: true});
+      // console.log("ID doesn't exist");
+      this.setState({showError: true, errorType: 2});
     }
   },
 
   getErrorMessage() {
     if (this.state.showError === true) {
-      var messageContent = {heading: 'User validation error', message: 'The number that you have provided does not exist'};
+      if (this.state.errorType === 1) {
+        var messageContent = {heading: 'User validation error', message: 'The number you entered has already been validated.'};
+      }else if (this.state.errorType === 2) {
+        var messageContent = {heading: 'User validation error', message: 'You have entered an invalid user number.'};
+      }
       return <Message messageType="negative" messageContent={messageContent} />
     }
   },
